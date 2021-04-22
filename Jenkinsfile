@@ -14,7 +14,9 @@ pipeline
         {
             steps
             {
-                if (fileExists('public'))
+                def exists = fileExists('public')
+
+                if (!exists)
                 {
                     new File('public').mkdir()
                 }
