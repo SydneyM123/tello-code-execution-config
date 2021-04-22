@@ -14,17 +14,18 @@ pipeline
         {
             steps
             {
-                def exists = fileExists('public')
-
-                if (!exists)
+                script
                 {
-                    new File('public').mkdir()
-                }
-                
-                dir ('public')
-                {
-                    git branch: 'master',
-                    url: 'https://github.com/SydneyM123/p-tff_ci_public'
+                    if (!fileExists('public'))
+                    {
+                        new File('public').mkdir()
+                    }
+                    
+                    dir ('public')
+                    {
+                        git branch: 'master',
+                        url: 'https://github.com/SydneyM123/p-tff_ci_public'
+                    }
                 }
             }
         }
