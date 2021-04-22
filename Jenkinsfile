@@ -18,7 +18,7 @@ pipeline
                 {
                     if (!fileExists('public'))
                     {
-                        new File('public').mkdir()
+                        sh 'mkdir public'
                     }
                     
                     dir ('public')
@@ -33,32 +33,32 @@ pipeline
         {
             steps
             {
-                sh  """
-                        python -m pip install virtualenv
-                        virtualenv venv
-                        . venv/bin/activate
-                        pip3 install flake8
-                        pip3 install gitpython
-                        deactivate
-                """
+                sh  '''
+                    python -m pip install virtualenv
+                    virtualenv venv
+                    . venv/bin/activate
+                    pip3 install flake8
+                    pip3 install gitpython
+                    deactivate
+                '''
             }
         }
         stage('Check')
         {
             steps
             {
-                sh  """
-                        echo 'Checking code...'
-                """
+                sh  '''
+                    echo 'Checking code...'
+                '''
             }
         }
         stage('Detect')
         {
             steps
             {
-                sh  """
-                        echo 'Detecting changes...'
-                """
+                sh  '''
+                    echo 'Detecting changes...'
+                '''
             }
         }
     }
