@@ -58,6 +58,7 @@ pipeline
             {
                 sh  '''
                     echo 'Detecting changes...'
+                    python -m detect_changes.py
                 '''
             }
         }
