@@ -58,7 +58,7 @@ pipeline
             {
                 sh  '''
                     echo 'Detecting changes...'
-                    python -m src/detect_changes.py
+                    python src/detect_changes.py
                 '''
             }
         }
