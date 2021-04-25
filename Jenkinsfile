@@ -34,6 +34,7 @@ pipeline
             steps
             {
                 sh  '''
+                    python -m pip install --upgrade pip
                     python -m pip install virtualenv
                     virtualenv venv
                     . venv/bin/activate
@@ -47,18 +48,19 @@ pipeline
         {
             steps
             {
-                sh  '''
-                    echo 'Checking code...'
-                '''
+                echo 'Checking code ...'
             }
         }
         stage('Detect')
         {
             steps
             {
+                echo 'Detecting changes...'
+                
                 sh  '''
-                    echo 'Detecting changes...'
+                    . venv/bin/activate
                     python src/detect_changes.py
+                    deactivate
                 '''
             }
         }
