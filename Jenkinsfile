@@ -25,6 +25,8 @@ pipeline
                             git branch: 'master',
                             url: 'https://github.com/SydneyM123/p-tff_ci_public'
                         }
+                        
+                        sh 'git commit --allow-empty -n -m "Initial commit."'
                     }
                     
                     sh 'ls -a'
