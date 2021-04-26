@@ -5,7 +5,7 @@ repo = Repo("./public/")
 for remote in repo.remotes:
     remote.fetch()
 
-diff = repo.git.diff("HEAD..remotes/origin/HEAD", name_only=True)
+diff = repo.git.diff("master..remotes/origin/master", name_only=True)
 
 print(diff)
 
