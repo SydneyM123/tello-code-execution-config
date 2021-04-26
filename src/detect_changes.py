@@ -1,6 +1,6 @@
 from git import Repo
 
-repo = Repo(".")
+repo = Repo("./public")
 
 for remote in repo.remotes:
     remote.fetch()
