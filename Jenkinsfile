@@ -19,12 +19,12 @@ pipeline
                     if (!fileExists('public'))
                     {
                         sh 'mkdir public'
-                    }
-                    
-                    dir ('public')
-                    {
-                        git branch: 'master',
-                        url: 'https://github.com/SydneyM123/p-tff_ci_public'
+                        
+                        dir ('public')
+                        {
+                            git branch: 'master',
+                            url: 'https://github.com/SydneyM123/p-tff_ci_public'
+                        }
                     }
                     
                     sh 'ls -a'
