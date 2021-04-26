@@ -60,6 +60,7 @@ pipeline
                 echo 'Detecting changes...'
                 
                 sh  '''
+                    ls public -a
                     ls -a
                     . venv/bin/activate
                     python src/detect_changes.py
