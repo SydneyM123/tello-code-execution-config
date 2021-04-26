@@ -1,6 +1,6 @@
 from git import Repo
 
-repo = Repo("./public")
+repo = Repo("/public/")
 
 for remote in repo.remotes:
     print(remote)
