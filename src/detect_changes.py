@@ -11,7 +11,7 @@ print("Changed files: ")
 print(diff)
 
 for remote in repo.remotes:
-    try:
+    try:    
         remote.pull()
-    except:
-        logging.exception("oops:")
+    except Exception as e:
+        print(e)
