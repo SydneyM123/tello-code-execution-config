@@ -11,4 +11,4 @@ print("Changed files: ")
 print(diff)
 
 for remote in repo.remotes:
-    remote.pull()
+    remote.pull("./public/")
