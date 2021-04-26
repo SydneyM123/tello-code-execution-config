@@ -15,9 +15,7 @@ pipeline
             steps
             {
                 script
-                {
-                    sh 'rm -r public'
-                    
+                {                    
                     if (!fileExists('public'))
                     {
                         sh 'mkdir public'
