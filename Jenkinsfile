@@ -63,9 +63,9 @@ pipeline
                     ls public -a
                     ls -a
                     
+                    . venv/bin/activate
                     git diff --name-only -- '***.py'
-                    
-
+                    deactivate
                 '''
             }
         }
