@@ -62,7 +62,7 @@ pipeline
                     cd public
                     ls
                     git --help
-                    git diff --name-only -- \'***.py\'
+                    git diff --name-only -- "***.py"
                     deactivate
                 '''
             }
