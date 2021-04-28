@@ -39,7 +39,6 @@ pipeline
                     virtualenv venv
                     . venv/bin/activate
                     pip3 install flake8
-                    pip3 install gitpython
                     deactivate
                 '''
             }
