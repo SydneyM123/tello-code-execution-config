@@ -8,6 +8,6 @@ print("Changed files: ")
 print(diff)
 
 try:
-  origin.pull()
+  repo.pull()
 except Exception as e:
   print(e)
