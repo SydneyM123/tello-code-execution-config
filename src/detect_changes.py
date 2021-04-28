@@ -13,6 +13,6 @@ subprocess.run(["git", "fetch"])
 # print("Changed files: ")
 # print(diff)
 
-subprocess.run(["git", "pull", "master", "master"])
+subprocess.run(["git", "pull", "master"])
 
 os.chdir(working_directory)
