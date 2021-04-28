@@ -4,7 +4,7 @@ from git import Repo
 repo = Repo("./public/")
 repo.git.fetch("origin", "master")
 
-diff = repo.git.diff("master..remotes/origin/master", "-- *.py", name_only=True)
+diff = repo.git.diff(name_only=True, "-- *.py", "master..remotes/origin/master")
 print("Changed files: ")
 print(diff)
 
