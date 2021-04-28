@@ -26,8 +26,6 @@ pipeline
                             url: 'https://github.com/SydneyM123/p-tff_ci_public'
                         }
                     }
-                    
-                    sh 'ls -a'
                 }
             }
         }
@@ -59,11 +57,9 @@ pipeline
             {
                 echo 'Detecting changes...'
                 
-                sh  '''
-                    ls public -a
-                    ls -a
-                    
+                sh  '''                    
                     . venv/bin/activate
+                    cd public
                     git diff --name-only -- '***.py'
                     deactivate
                 '''
