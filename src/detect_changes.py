@@ -6,8 +6,4 @@ origin.fetch()
 diff = repo.git.diff("master..remotes/origin/master", name_only=True)
 print("Changed files: ")
 print(diff)
-
-try:
-  repo.pull()
-except Exception as e:
-  print(e)
+origin.pull()
