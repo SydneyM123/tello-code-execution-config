@@ -59,10 +59,7 @@ pipeline
                 
                 sh  '''                    
                     . venv/bin/activate
-                    cd public
-                    ls
-                    git --help
-                    git diff --name-only -- "***.py"
+                    python src/detect_changes.py
                     deactivate
                 '''
             }
