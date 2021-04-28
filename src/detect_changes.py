@@ -10,4 +10,4 @@ print(diff)
 try:
   origin.pull()
 except Exception as e:
-  print(e.stderr)
+  print(e)
