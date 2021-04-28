@@ -3,7 +3,7 @@ import os
 
 working_directory = os.getcwd()
 
-os.chdir("../p-tff_ci_public")
+os.chdir("./public")
 
 subprocess.run(["git", "fetch"])
 
