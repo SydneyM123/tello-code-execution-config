@@ -13,8 +13,11 @@ changed_files = diff.split("\n")
 
 for changed_file in changed_files:
   path_pieces = changed_file.split("/")
+  source = f"{working_directory}/public/{changed_file}"
+  destination = f"{working_directory}/ready-files/{path_pieces[-1]}"
+  if not os.exists(destination):
+    os.rename(source, destination)
   print(path_pieces[-1])
-  os.replace(f"{working_directory}/public/{changed_file}", f"{working_directory}/ready-files/{path_pieces[-1]}")
 
 # subprocess.run(["git", "pull", "origin", "master"])
 os.chdir(working_directory)
