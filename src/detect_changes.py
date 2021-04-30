@@ -12,15 +12,19 @@ diff = result.stdout.decode("utf-8")
 changed_files = diff.split("\n")
 
 # Print and move changed Python files to the 'ready-files' volume
-# Only uniquely named files will be copied (no duplicates)
-print("Changed and moved Python files: ")
+print("Changed files (.py): ")
+
 for changed_file in changed_files:
   last_path_piece = changed_file.split("/")[-1]
   source = f"{working_directory}/public/{changed_file}"
   destination = f"{working_directory}/ready-files/{last_path_piece}"
+  
+  # Only uniquely named files will be copied (no duplicates)
   if not os.path.exists(destination):
+    os.remove(destination)
     os.rename(source, destination)
-    print(last_path_piece)
+    
+  print(last_path_piece)
 
 # Pull directory to merge changes
 # subprocess.run(["git", "pull", "origin", "master"])
