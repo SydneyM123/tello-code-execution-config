@@ -8,7 +8,7 @@ os.chdir("./public")
 
 subprocess.run(["git", "fetch"])
 
-print("Changed files: ")
+print("Changed Python files: ")
 result = subprocess.run(["git", "diff", "--name-only", "master..remotes/origin/master", "--", "***.py"], stdout=subprocess.PIPE)
 print(result.stdout.decode("utf-8"))
 
