@@ -18,7 +18,7 @@ for changed_file in changed_files:
   last_path_piece = changed_file.split("/")[-1]
   source = f"{working_directory}/public/{changed_file}"
   destination = f"{working_directory}/ready-files/{last_path_piece}"
-  if !os.path.exists(destination):
+  if not os.path.exists(destination):
     os.rename(source, destination)
   print(last_path_piece)
 
