@@ -59,8 +59,13 @@ pipeline
                 sh  '''                    
                     . venv/bin/activate
                     python src/detect_changes.py
-                    ls ready-files -a
                     deactivate
+                '''
+                
+                echo '--------------------------------------'
+                
+                sh  '''                    
+                    ls ready-files
                 '''
             }
         }
