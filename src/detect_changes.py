@@ -14,6 +14,6 @@ changed_files = diff.split("\n")
 for changed_file in changed_files:
   print(changed_file)
 
-os.replace()
+# os.replace()
 subprocess.run(["git", "pull", "origin", "master"])
 os.chdir(working_directory)
