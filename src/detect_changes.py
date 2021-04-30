@@ -11,6 +11,9 @@ result = subprocess.run(["git", "diff", "--name-only", "master..remotes/origin/m
 diff = result.stdout.decode("utf-8")
 changed_files = diff.split("\n")
 
+# Pull directory to merge changes
+subprocess.run(["git", "pull", "origin", "master"])
+
 # Print and move changed Python files to the 'ready-files' volume
 print("Changed files (.py): ")
 
@@ -22,9 +25,6 @@ for changed_file in changed_files:
   if not os.path.exists(destination):
     os.rename(source, destination)
   print(changed_file)
-
-# Pull directory to merge changes
-subprocess.run(["git", "pull", "origin", "master"])
 
 # Change current path to default directory
 os.chdir(working_directory)
