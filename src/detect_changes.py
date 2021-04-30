@@ -17,5 +17,5 @@ for changed_file in changed_files:
   print(path_pieces[-1])
   Path(f"./{changed_file}").rename(f"./../ready_files/{path_pieces[-1]}")
 
-subprocess.run(["git", "pull", "origin", "master"])
+# subprocess.run(["git", "pull", "origin", "master"])
 os.chdir(working_directory)
