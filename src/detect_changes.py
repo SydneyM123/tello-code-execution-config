@@ -26,7 +26,7 @@ for changed_file in changed_files:
   print(last_path_piece)
 
 # Pull directory to merge changes
-# subprocess.run(["git", "pull", "origin", "master"])
+subprocess.run(["git", "pull", "origin", "master"])
 
 # Change current path to default directory
 os.chdir(working_directory)
