@@ -3,7 +3,7 @@ import os
 
 # Fetch public repository into public directory
 working_directory = os.getcwd()
-os.chdir('''Hello''' "./public")
+os.chdir("./public")
 subprocess.run(["git", "fetch"])
 
 # Get all the added or changed .py files in all sub-directories
