@@ -21,7 +21,6 @@ for changed_file in changed_files:
   
   # Only uniquely named files will be copied (no duplicates)
   if not os.path.exists(destination):
-    os.remove(destination)
     os.rename(source, destination)
     
   print(last_path_piece)
