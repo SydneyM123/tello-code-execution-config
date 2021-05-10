@@ -48,6 +48,12 @@ pipeline
             steps
             {
                 echo 'Checking code ...'
+                
+                sh  '''                    
+                    . venv/bin/activate
+                    python src/validate_changes.py
+                    deactivate
+                '''
             }
         }
         stage('Detect')
