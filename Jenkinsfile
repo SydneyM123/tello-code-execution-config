@@ -51,7 +51,7 @@ pipeline
                 
                 sh  '''                    
                     . venv/bin/activate
-                    python src/validate_changes.py
+                    flake8 ./public
                     deactivate
                 '''
             }
