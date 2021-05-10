@@ -47,8 +47,6 @@ pipeline
         {
             steps
             {
-                echo 'Checking code ...'
-                
                 sh  '''                    
                     . venv/bin/activate
                     flake8 ./public
@@ -59,12 +57,10 @@ pipeline
         stage('Detect')
         {
             steps
-            {
-                echo 'Detecting changes...'
-                
+            {                
                 sh  '''                    
                     . venv/bin/activate
-                    python src/detect_changes.py
+                    python private/src/detect_changes.py
                     deactivate
                 '''
                 
