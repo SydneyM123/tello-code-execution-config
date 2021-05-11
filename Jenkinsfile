@@ -43,6 +43,17 @@ pipeline
                 '''
             }
         }
+        stage('Check')
+        {
+            steps
+            {
+                sh  '''                    
+                    . venv/bin/activate
+                    flake8 ./public
+                    deactivate
+                '''
+            }
+        }
         stage('Detect')
         {
             steps
@@ -57,17 +68,6 @@ pipeline
                 
                 sh  '''                    
                     ls ready-files
-                '''
-            }
-        }
-        stage('Check')
-        {
-            steps
-            {
-                sh  '''                    
-                    . venv/bin/activate
-                    flake8 ./public
-                    deactivate
                 '''
             }
         }
