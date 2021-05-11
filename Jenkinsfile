@@ -23,7 +23,7 @@ pipeline
                         dir ('public')
                         {
                             git branch: 'master',
-                            url: 'https://github.com/SydneyM123/p-tff_ci_public'
+                            url: 'https://github.com/SydneyM123/tello-code-execution'
                         }
                     }
                 }
