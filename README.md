@@ -1,2 +1,2 @@
-# p-ttf_ci_private
-Private repository which contains code for Jenkins
+# Configuration file for the tello code execution
+Private repository which contains code for Docker, Jenkins and the scheduler
