@@ -12,7 +12,9 @@
        else go to 2
 '''
 
-import glob
+import os
+from pathlib import Path
 
 
-ready_files = glob.glob("./ready-files/*.py"))
+paths = sorted(Path("./ready-files/").iterdir(), key=os.path.getmtime)
+print(paths)
