@@ -107,12 +107,11 @@ pipeline
                         sh 'mkdir ready-files'
                     }
                 }
-                
-                docker
-                {
-                    image 'python:3'
-                    args '-it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python ready-files/group_10.py'
-                }
+            }
+            docker
+            {
+                image 'python:3'
+                args '-it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python ready-files/group_10.py'
             }
         }
     }
