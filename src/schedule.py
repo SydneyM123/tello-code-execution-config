@@ -25,7 +25,7 @@ for changed_file in changed_files:
   destination = f"{working_directory}/ready-files/{last_path_piece}"
   if os.path.exists(destination):
     os.remove(destination)
-    shutil.move(source, destination)
+  shutil.move(source, destination)
   print(changed_file)
 
 # Change current path to default directory
