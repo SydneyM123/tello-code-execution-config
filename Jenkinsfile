@@ -92,26 +92,13 @@ pipeline
         }
         stage('Execute')
         {
-            steps
-            {                
-                sh  '''                    
-                    . venv/bin/activate
-                    python private/src/execute.py
-                    deactivate
-                '''
-                
-                script
-                {                    
-                    if (!fileExists('ready-files'))
-                    {
-                        sh 'mkdir ready-files'
-                    }
-                }
-            }
-            docker
+            agent
             {
-                image 'python:3'
-                args '-it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python ready-files/group_10.py'
+                docker
+                {
+                    image 'python:3'
+                    args '-it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python ready-files/group_10.py'
+                }
             }
         }
     }
