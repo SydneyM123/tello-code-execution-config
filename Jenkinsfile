@@ -82,6 +82,14 @@ pipeline
                 sh  '''                    
                     ls ready-files
                 '''
+                
+                sh  '''                    
+                    rm -r ready-files
+                '''
+                
+                sh  '''                    
+                    ls ready-files
+                '''
             }
         }
         stage('Execute')
