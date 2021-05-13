@@ -73,7 +73,7 @@ pipeline
             {                
                 sh  '''                    
                     . venv/bin/activate
-                    python private/src/schedule_changes.py
+                    python private/src/schedule.py
                     deactivate
                 '''
                 
