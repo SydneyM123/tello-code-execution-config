@@ -1,6 +1,5 @@
 import subprocess
 import os
-import shutil
 
 # Fetch public repository into public directory
 working_directory = os.getcwd()
@@ -23,9 +22,11 @@ for changed_file in changed_files:
   last_path_piece = changed_file.split("/")[-1]
   source = f"{working_directory}/public/{changed_file}"
   destination = f"{working_directory}/ready-files/{last_path_piece}"
+  if not os.path.isfile(source):
+    break
   if os.path.exists(destination):
-    os.remove(destination)
-  shutil.move(source, destination)
+      os.remove(destination)
+  os.replace(source, destination)
   print(changed_file)
 
 # Change current path to default directory
