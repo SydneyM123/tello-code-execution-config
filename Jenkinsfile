@@ -70,7 +70,15 @@ pipeline
         stage('Schedule')
         {            
             steps
-            {                
+            {
+                script
+                {                    
+                    if (!fileExists('ready-files'))
+                    {
+                        sh 'mkdir ready-files'
+                    }
+                }
+                
                 sh  '''                    
                     . venv/bin/activate
                     python private/src/schedule.py
@@ -79,17 +87,7 @@ pipeline
                 
                 echo '--------------------------------------'
                 
-                sh  '''                    
-                    ls ready-files
-                '''
-                
-                sh  '''                    
-                    rm -r ready-files
-                '''
-                
-                sh  '''                    
-                    ls ready-files
-                '''
+                sh 'ls ready-files'
             }
         }
         stage('Execute')
