@@ -1,15 +1,15 @@
 '''
     1. Add all ready-files to list
 
-    2. Get random ready-file
+    2. Get first created ready-file
+    
+    3. List running Docker containers
+    
+    4. Stop executing this file if there is already a python script running
 
-    3. Execute ready-file
+    5. Execute ready-file
 
-    4. Remove ready-file (from list and file)
-
-    5. No files in list?
-       goto 1
-       else go to 2
+    6. Remove ready-file from ready-files directory
 '''
 
 import os
