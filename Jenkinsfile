@@ -10,7 +10,7 @@ pipeline
     }
     stages
     {
-        stage('Checkout (if not existing)')
+        stage('Initialise')
         {
             steps
             {
@@ -27,12 +27,7 @@ pipeline
                         }
                     }
                 }
-            }
-        }
-        stage('Init')
-        {
-            steps
-            {
+                
                 sh  '''
                     python -m pip install --upgrade pip
                     python -m pip install virtualenv
@@ -43,24 +38,42 @@ pipeline
                 '''
             }
         }
-        stage('Check')
-        {
+        stage('Validate')
+        {      
             steps
             {
+                script
+                {
+                    sh 'mkdir public_tmp'
+
+                    dir ('public_tmp')
+                    {
+                        git branch: 'master',
+                        url: 'https://github.com/SydneyM123/tello-code-execution'
+                    }
+                }
+                
                 sh  '''                    
                     . venv/bin/activate
-                    flake8 ./public
+                    flake8 ./public_tmp
                     deactivate
                 '''
             }
+            post
+            {
+                always
+                {
+                    sh 'rm -r public_tmp'
+                }
+            }
         }
-        stage('Detect')
+        stage('Schedule')
         {
             steps
             {                
                 sh  '''                    
                     . venv/bin/activate
-                    python private/src/detect_changes.py
+                    python private/src/schedule_changes.py
                     deactivate
                 '''
                 
@@ -68,6 +81,17 @@ pipeline
                 
                 sh  '''                    
                     ls ready-files
+                '''
+            }
+        }
+        stage('Execute')
+        {
+            steps
+            {                
+                sh  '''                    
+                    . venv/bin/activate
+                    python private/src/execute.py
+                    deactivate
                 '''
             }
         }
