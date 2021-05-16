@@ -7,7 +7,7 @@ import fnmatch
 # Fetch public repository into public directory
 working_directory = os.getcwd()
 os.chdir("./public")
-subprocess.check_call(["git", "fetch"], stdout=subprocess.DEVNULL)
+subprocess.run(["git", "fetch"])
 
 # Get all the added or changed .py files in all sub-directories
 result = subprocess.run(["git", "diff", "--name-only", "master..remotes/origin/master", "--", "***.py"], stdout=subprocess.PIPE)
@@ -15,7 +15,7 @@ diff = result.stdout.decode("utf-8")
 changed_files = diff.split("\n")
 
 # Pull directory to merge changes
-subprocess.check_call(["git", "pull", "origin", "master"], stdout=subprocess.DEVNULL)
+subprocess.run(["git", "pull", "origin", "master"])
 
 # Move changed Python files to the 'ready-files' directory (only uniquely named files will be copied, no duplicates)
 print("Changed Python files: ")
