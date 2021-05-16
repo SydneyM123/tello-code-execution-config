@@ -1,20 +1,13 @@
-'''
-    1. Add all ready-files to list
-
-    2. Get first created ready-file
-    
+'''    
     3. List running Docker containers
     
-    4. Stop executing this file if there is already a python script running
+    4. Halt this file if there is already a python script running
 
-    5. Execute ready-file
+    3. If exe.py does not exist, halt
+    
+    4. os.replace exe.py to runable/running.py
+    
+    5. Execute running.py
 
-    6. Remove ready-file from ready-files directory
+    6. Remove exe.py
 '''
-
-import os
-from pathlib import Path
-
-
-paths = sorted(Path("./ready-files/").iterdir(), key=os.path.getmtime)
-print(paths)
