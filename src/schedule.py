@@ -43,7 +43,7 @@ if not len(ready_files) == 0:
   
   # Print file with earliest modification date
   print("Ready-file to be executed: ")
-  print(ready_files[0])
+  print(ready_files[0].split("/")[-1])
   print("----------")
   
   # Move file to execute to root and rename it to exe.py
