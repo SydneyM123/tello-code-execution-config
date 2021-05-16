@@ -4,17 +4,17 @@ import fnmatch
 
 
 # Compare ready-files with public git Python files to get the earliest modified file (first in queue)
-def first_in_queue(public_files, ready_files):
+def find_first_in_queue(public_files, ready_files):
   public_files.sort(key=os.path.getmtime, reverse=True)
   for public_file in public_files:
     public_filename = public_file.split("/")[-1]
-    ready_file = ready_file(public_filename, ready_files)
+    ready_file = find_ready_file(public_filename, ready_files)
     if ready_file:
       return ready_file
   return False
 
 
-def ready_file(public_filename, ready_files):
+def find_ready_file(public_filename, ready_files):
   for ready_file in ready_files:
       if ready_file == public_filename:
         return ready_file
@@ -66,7 +66,7 @@ for file in os.listdir(root):
         ready_files.append(file)
 
 # Print file with earliest modification date
-file_to_execute = first_in_queue(public_files, ready_files)
+file_to_execute = find_first_in_queue(public_files, ready_files)
 print("Ready-file to be executed: ")
 print(file_to_execute)
 
