@@ -35,6 +35,7 @@ files = []
 for file in os.listdir(f"{working_directory}/ready-files/"):
     if fnmatch.fnmatch(file, '*.py'):
         files.append(file)
+        print(file)
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
