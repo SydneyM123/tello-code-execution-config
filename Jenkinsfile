@@ -94,6 +94,7 @@ pipeline
         {
             steps
             {
+                echo 'Executing...'
             }
         }
     }
