@@ -1,5 +1,6 @@
 import subprocess
 import os
+import glob
 
 # Fetch public repository into public directory
 working_directory = os.getcwd()
@@ -27,7 +28,14 @@ for changed_file in changed_files:
   if os.path.exists(destination):
       os.remove(destination)
   os.replace(source, destination)
-  print(changed_file)
+#   print(changed_file)
 
+# Get all the ready-files
+files = glob.glob(f"{working_directory}/ready-files/*.py")
+files.sort(key=os.path.getmtime, reverse=True)
+
+# Print file with earliest modification date
+print(file[0])
+  
 # Change current path to default directory
 os.chdir(working_directory)
