@@ -36,7 +36,7 @@ subprocess.run(["git", "pull", "origin", "master"])
 
 
 # Move changed Python files to the 'ready-files' directory (only uniquely named files will be copied, no duplicates)
-if len(changed_files) <= 0:
+if not changed_files:
   print("No changed Python files...")
 else:
   print("Changed Python files: ")
