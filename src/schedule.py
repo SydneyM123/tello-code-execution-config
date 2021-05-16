@@ -39,7 +39,7 @@ for file in os.listdir(root):
         ready_files.append(root + file)
 
 if not len(ready_files) == 0:
-  public_files.sort(key=os.path.getmtime, reverse=True)
+  ready_files.sort(key=os.path.getmtime, reverse=True)
   
   # Print file with earliest modification date
   print("Ready-file to be executed: ")
