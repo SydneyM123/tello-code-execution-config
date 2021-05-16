@@ -32,15 +32,19 @@ for changed_file in changed_files:
 
 # Get all the ready-files
 source = f"{working_directory}/ready-files/"
-files = []
+files_with_path = []
 for file in os.listdir(source):
     if fnmatch.fnmatch(file, '*.py'):
-        files.append(source + file)
+        files_with_path.append(source + file)
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
-print("File with earliest modification date: ")
-print(files[0])
+file_to_execute = files[0].split("/")[-1]
+print("Ready-file to be executed: ")
+print(file_to_execute)
+
+# Move file to execute to root and rename it to exe.py
+os.replace(files[0], working_directory)
   
 # Change current path to default directory
 os.chdir(working_directory)
