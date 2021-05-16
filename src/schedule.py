@@ -1,5 +1,6 @@
 import subprocess
 import os
+import shutil
 import fnmatch
 
 
@@ -44,7 +45,7 @@ for changed_file in changed_files:
     continue
   if os.path.exists(destination):
       os.remove(destination)
-  os.replace(source, destination)
+  shutil.copy2(source, destination)
   print(changed_file)
 print("----------")
   
