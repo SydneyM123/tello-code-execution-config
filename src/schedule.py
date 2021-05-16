@@ -28,13 +28,14 @@ for changed_file in changed_files:
   if os.path.exists(destination):
       os.remove(destination)
   os.replace(source, destination)
-#   print(changed_file)
+  print(changed_file)
 
 # Get all the ready-files
 files = glob.glob(f"{working_directory}/ready-files/*.py")
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
+print("File with earliest modification date: ")
 print(files[0])
   
 # Change current path to default directory
