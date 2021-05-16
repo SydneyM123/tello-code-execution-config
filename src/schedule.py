@@ -34,7 +34,7 @@ for changed_file in changed_files:
 source = f"{working_directory}/ready-files/"
 files = []
 for file in os.listdir(source):
-    if fnmatch.fnmatch(file, '*.py'):
+    if fnmatch.fnmatch(file, "*.py"):
         files.append(source + file)
 files.sort(key=os.path.getmtime, reverse=True)
 
@@ -44,7 +44,7 @@ print("Ready-file to be executed: ")
 print(file_to_execute)
 
 # Move file to execute to root and rename it to exe.py
-os.replace(files[0], working_directory)
+os.replace(files[0], f"{working_directory}/")
   
 # Change current path to default directory
 os.chdir(working_directory)
