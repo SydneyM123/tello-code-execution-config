@@ -85,7 +85,7 @@ pipeline
                     deactivate
                 '''
                 
-                echo '--------------------------------------'
+                echo '----------'
                 
                 sh 'ls ready-files'
             }
