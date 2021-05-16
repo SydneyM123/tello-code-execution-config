@@ -46,6 +46,7 @@ for changed_file in changed_files:
       os.remove(destination)
   os.replace(source, destination)
   print(changed_file)
+print("----------")
   
 # Get all the public Python files
 root = f"{working_directory}/public/"
@@ -65,11 +66,14 @@ for file in os.listdir(root):
 # Print file with earliest modification date (if the file is found)
 file_to_execute = find_first_in_queue(public_files, ready_files)
 print(file_to_execute)
+print(public_files)
+print(ready_files)
 if file_to_execute:
   print("Ready-file to be executed: ")
   print(file_to_execute)
   # Move file to execute to root and rename it to exe.py
   os.replace(file_to_execute, f"{working_directory}/exe.py")
+print("----------")
 
 # Change current path to default directory
 os.chdir(working_directory)
