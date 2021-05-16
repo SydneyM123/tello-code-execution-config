@@ -31,10 +31,11 @@ for changed_file in changed_files:
   print(changed_file)
 
 # Get all the ready-files
+source = f"{working_directory}/ready-files/"
 files = []
-for file in os.listdir(f"{working_directory}/ready-files/"):
+for file in os.listdir(source):
     if fnmatch.fnmatch(file, '*.py'):
-        files.append(os.path.abspath(file))
+        files.append(source + file)
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
