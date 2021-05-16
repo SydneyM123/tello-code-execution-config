@@ -84,10 +84,6 @@ pipeline
                     python private/src/schedule.py
                     deactivate
                 '''
-                
-                echo '----------'
-                
-                sh 'ls ready-files'
             }
         }
         stage('Execute')
