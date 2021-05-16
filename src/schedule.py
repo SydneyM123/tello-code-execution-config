@@ -65,13 +65,13 @@ for file in os.listdir(root):
         # TODO: Consider using os.path.join
         ready_files.append(file)
 
-# Print file with earliest modification date
+# Print file with earliest modification date (if the file is found)
 file_to_execute = find_first_in_queue(public_files, ready_files)
-print("Ready-file to be executed: ")
-print(file_to_execute)
-
-# Move file to execute to root and rename it to exe.py
-os.replace(file_to_execute, f"{working_directory}/exe.py")
+if file_to_execute:
+  print("Ready-file to be executed: ")
+  print(file_to_execute)
+  # Move file to execute to root and rename it to exe.py
+  os.replace(file_to_execute, f"{working_directory}/exe.py")
 
 # Change current path to default directory
 os.chdir(working_directory)
