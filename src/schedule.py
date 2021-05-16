@@ -35,7 +35,7 @@ files = glob.glob(f"{working_directory}/ready-files/*.py")
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
-print(file[0])
+print(files[0])
   
 # Change current path to default directory
 os.chdir(working_directory)
