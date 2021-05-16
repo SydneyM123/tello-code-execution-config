@@ -54,7 +54,7 @@ public_files = []
 for path, subdirs, files in os.walk(root):
     for file in files:
         if fnmatch.fnmatch(file, "*.py"):
-            public_files.append(os.path.join(path, file))
+            public_files.append(root + file)
 
 # Get all the ready-files
 root = f"{working_directory}/ready-files/"
