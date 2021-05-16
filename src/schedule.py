@@ -34,20 +34,22 @@ changed_files = diff.split("\n")
 # Pull directory to merge changes
 subprocess.run(["git", "pull", "origin", "master"])
 
-# Print and move changed Python files to the 'ready-files' volume
-print("Changed files (.py): ")
 
-# Only uniquely named files will be copied (no duplicates)
-for changed_file in changed_files:
-  last_path_piece = changed_file.split("/")[-1]
-  source = f"{working_directory}/public/{changed_file}"
-  destination = f"{working_directory}/ready-files/{last_path_piece}"
-  if not os.path.isfile(source):
-    continue
-  if os.path.exists(destination):
-      os.remove(destination)
-  os.replace(source, destination)
-  print(changed_file)
+# Move changed Python files to the 'ready-files' directory (only uniquely named files will be copied, no duplicates)
+if len(changed_files) <= 0:
+  print("No changed Python files...")
+else:
+  print("Changed Python files: ")
+  for changed_file in changed_files:
+    last_path_piece = changed_file.split("/")[-1]
+    source = f"{working_directory}/public/{changed_file}"
+    destination = f"{working_directory}/ready-files/{last_path_piece}"
+    if not os.path.isfile(source):
+      continue
+    if os.path.exists(destination):
+        os.remove(destination)
+    os.replace(source, destination)
+    print(changed_file)
   
 # Get all the public Python files
 root = f"{working_directory}/public/"
