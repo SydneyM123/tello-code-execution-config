@@ -44,7 +44,7 @@ print("Ready-file to be executed: ")
 print(file_to_execute)
 
 # Move file to execute to root and rename it to exe.py
-os.replace(files[0], f"{working_directory}/")
+os.replace(files[0], f"{working_directory}/exe.py")
   
 # Change current path to default directory
 os.chdir(working_directory)
