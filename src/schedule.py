@@ -1,6 +1,6 @@
 import subprocess
 import os
-import glob
+import fnmatch
 
 # Fetch public repository into public directory
 working_directory = os.getcwd()
@@ -31,7 +31,10 @@ for changed_file in changed_files:
   print(changed_file)
 
 # Get all the ready-files
-files = glob.glob(f"{working_directory}/ready-files/*.py")
+files = []
+for file in os.listdir(f"{working_directory}/ready-files/"):
+    if fnmatch.fnmatch(file, '*.py'):
+        files.add(file)
 files.sort(key=os.path.getmtime, reverse=True)
 
 # Print file with earliest modification date
