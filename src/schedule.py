@@ -34,22 +34,18 @@ changed_files = diff.split("\n")
 # Pull directory to merge changes
 subprocess.run(["git", "pull", "origin", "master"])
 
-
 # Move changed Python files to the 'ready-files' directory (only uniquely named files will be copied, no duplicates)
-if not changed_files:
-  print("No changed Python files...")
-else:
-  print("Changed Python files: ")
-  for changed_file in changed_files:
-    last_path_piece = changed_file.split("/")[-1]
-    source = f"{working_directory}/public/{changed_file}"
-    destination = f"{working_directory}/ready-files/{last_path_piece}"
-#     if not os.path.isfile(source):
-#       continue
-    if os.path.exists(destination):
-        os.remove(destination)
-    os.replace(source, destination)
-    print(changed_file)
+print("Changed Python files: ")
+for changed_file in changed_files:
+  last_path_piece = changed_file.split("/")[-1]
+  source = f"{working_directory}/public/{changed_file}"
+  destination = f"{working_directory}/ready-files/{last_path_piece}"
+  if not os.path.isfile(source):
+    continue
+  if os.path.exists(destination):
+      os.remove(destination)
+  os.replace(source, destination)
+  print(changed_file)
   
 # Get all the public Python files
 root = f"{working_directory}/public/"
@@ -64,7 +60,6 @@ root = f"{working_directory}/ready-files/"
 ready_files = []
 for file in os.listdir(root):
     if fnmatch.fnmatch(file, "*.py"):
-        # TODO: Consider using os.path.join
         ready_files.append(file)
 
 # Print file with earliest modification date (if the file is found)
