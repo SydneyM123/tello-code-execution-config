@@ -44,8 +44,8 @@ else:
     last_path_piece = changed_file.split("/")[-1]
     source = f"{working_directory}/public/{changed_file}"
     destination = f"{working_directory}/ready-files/{last_path_piece}"
-    if not os.path.isfile(source):
-      continue
+#     if not os.path.isfile(source):
+#       continue
     if os.path.exists(destination):
         os.remove(destination)
     os.replace(source, destination)
