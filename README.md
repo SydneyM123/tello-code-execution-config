@@ -11,17 +11,23 @@ Private repository which contains code for Docker, Jenkins and the scheduler
 
 2. Build the Dockerfile for Jenkins (Located in the init/ directory)
 
-    ```docker build -t myjenkins-blueocean:1.1 .```
+    ```
+    docker build -t myjenkins-blueocean:1.1 .
+    ```
 
 3. Run Jenkins (including Blue ocean)
 
-    ```docker run --name jenkins-blueocean --detach --privileged --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs            /client --env DOCKER_TLS_VERIFY=1 --publish 8080:8080 --publish 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --volume jenkins-              data:/var /jenkins_home --volume jenkins-docker-certs:/certs/client:ro --volume "$HOME":/home myjenkins-blueocean:1.1```
+    ```
+    docker run --name jenkins-blueocean --detach --privileged --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs            /client --env DOCKER_TLS_VERIFY=1 --publish 8080:8080 --publish 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --volume jenkins-              data:/var /jenkins_home --volume jenkins-docker-certs:/certs/client:ro --volume "$HOME":/home myjenkins-blueocean:1.1
+    ```
 
 4. Go to the webinterface located at [host]:8080
 5. When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 6. Display the Jenkins console log with the command:
 
-    ```docker logs jenkins-blueocean```
+    ```
+    docker logs jenkins-blueocean
+    ```
 
 7. From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 8. On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
@@ -39,4 +45,6 @@ Private repository which contains code for Docker, Jenkins and the scheduler
 
 # PS: Running a python container with .py file
 
-```docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-    code-exe python:3 python ready-files/group_10.py```
+```
+docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-    code-exe python:3 python ready-files/group_10.py
+```
