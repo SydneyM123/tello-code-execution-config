@@ -5,9 +5,9 @@ Private repository which contains code for Docker, Jenkins and the scheduler
 
 1. Run the Docker in Docker container:
 
-```
+    ```
     docker run --name jenkins-docker --detach --privileged --network jenkins --network-alias docker --env DOCKER_TLS_CERTDIR=/certs --volume jenkins-       docker-certs:/certs/client --volume jenkins-data:/var/jenkins_home --publish 2376:2376 docker:dind --storage-driver overlay2
-```
+    ```
 
 2. Build the Dockerfile for Jenkins (Located in the init/ directory)
 
