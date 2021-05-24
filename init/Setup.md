@@ -1,25 +1,19 @@
 # Jenkins Setup Guide
 
 2. Build the Dockerfile for Jenkins (Located in the init/ directory):
-
-    ```
-    docker build -t jenkins .
-    ```
-
+```
+docker build -t jenkins .
+```
 3. Run Jenkins:
-
-    ```
-    docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var                 /jenkins_home -v "$HOME":/home jenkins
-    ```
-
+```
+docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var                 /jenkins_home -v "$HOME":/home jenkins
+```
 4. Go to the webinterface located at [host]:8080
 5. When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 6. Display the Jenkins console log with the command:
-
-    ```
-    docker logs jenkins
-    ```
-
+```
+docker logs jenkins
+```
 7. From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 8. On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
 9. Go to 'Manage Jenkins' to update Jenkins to a newer version and check the auto-restart box
