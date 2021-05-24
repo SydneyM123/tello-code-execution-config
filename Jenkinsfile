@@ -111,8 +111,8 @@ pipeline
                 echo 'Executing...'
                 
                 sh '''
-                    docker run --rm --privileged --name tello-code-exe \
-                    --volume /var/jenkins_home/workspace/tello-code-execution:/var/jenkins_home/workspace/tello-code-execution \
+                    docker run --rm --name tello-code-exe \
+                    -v jenkins-data:/var/jenkins_home \
                     -w /var/jenkins_home/workspace/tello-code-exe python:3 python exe.py
                 '''
             }
