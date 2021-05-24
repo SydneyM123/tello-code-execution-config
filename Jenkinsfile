@@ -1,17 +1,18 @@
 pipeline
 {
-    agent
-    {
-        docker
-        {
-            image 'python:3'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent none
     stages
     {
         stage('Initialise')
         {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {
                 script
@@ -40,6 +41,14 @@ pipeline
         }
         stage('Validate')
         {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {                
                 sh  '''                    
@@ -50,7 +59,15 @@ pipeline
             }
         }
         stage('Schedule')
-        {            
+        {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {
                 script
@@ -70,12 +87,12 @@ pipeline
         }
         stage('Execute')
         {
-            agent none
+            agent any
             steps
             {
                 echo 'Executing...'
                 
-                sh 'docker run -it --rm --detach --priviliged --name tello-code-exe -w /var/jenkins_home/workspace/tello-code-exe python3 python exe.py'
+                sh 'docker run -it --rm --detach --priviliged --name tello-code-exe python3 python exe.py'
             }
         }
     }
