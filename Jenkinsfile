@@ -92,7 +92,7 @@ pipeline
             {
                 echo 'Executing...'
                 
-                sh 'docker run -it --rm --detach --privileged --name tello-code-exe python3 python exe.py'
+                sh 'docker run -it --rm --detach --privileged --name tello-code-exe python:3 python exe.py'
             }
         }
     }
