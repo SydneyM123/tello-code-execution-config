@@ -13,5 +13,3 @@ RUN add-apt-repository \
        $(lsb_release -cs) stable"
 
 RUN apt-get update && apt-get install -y docker-ce-cli
-RUN jenkins-plugin-cli --plugins \
-       "blueocean:latest docker-workflow:latest scm-api:latest git-client:latest git:latest"
