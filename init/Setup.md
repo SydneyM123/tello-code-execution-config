@@ -10,9 +10,12 @@ docker build -t jenkins .
 ```
 docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var                 /jenkins_home -v "$HOME":/home jenkins
 ```
-#### Go to the webinterface located at [host]:8080
-#### When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
-#### Display the Jenkins console log with the command:
+
+#### Setting up Jenkins
+
+##### Go to the webinterface located at [host]:8080
+##### When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
+##### Display the Jenkins console log with the command:
 ```
 docker logs jenkins
 ```
