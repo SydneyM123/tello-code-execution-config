@@ -4,23 +4,22 @@
 
 - Open a terminal and go to the init directory located in this repository (tello-code-execution-config)
 - Build the Dockerfile for Jenkins:
-
-  ```
-  docker build -t jenkins .
-  ```
+```
+docker build -t jenkins .
+```
 - Run Jenkins:
-
-  ```
-  docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var /jenkins_home -v "$HOME":/home jenkins
-  ```
+```
+docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var /jenkins_home -v "$HOME":/home jenkins
+```
 
 ## Setting up Jenkins
 
 - Go to the webinterface located at [host]:8080
 - When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 - Display the Jenkins console log with the command:
-  ```
-  docker logs jenkins```
+```
+docker logs jenkins
+```
 - From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 - On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
 - The automatically-generated password can be used to login the Jenkins (the username is: 'admin').
