@@ -1,4 +1,4 @@
-# :floppy_disk: Jenkins Setup Guide
+# :floppy_disk: Jenkins Setup Guide (as a Docker container)
 
 ## Running Jenkins
 
