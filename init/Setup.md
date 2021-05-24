@@ -16,7 +16,9 @@
 5. When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 6. Display the Jenkins console log with the command:
 
-    ```docker logs jenkins```
+    ```
+    docker logs jenkins
+    ```
 
 7. From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 8. On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
@@ -33,4 +35,6 @@
 19. TODO: ....
 
 # PS: Running a python container with .py file
-```docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python:3 python ready-files/group_10.py```
+```
+docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python:3 python ready-files/group_10.py
+```
