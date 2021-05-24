@@ -43,6 +43,3 @@ docker logs jenkins
 10. TODO: ....
 
 ### PS: Running a python container with .py file
-```
-docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/tello-code-exe python:3 python ready-files/group_10.py
-```
