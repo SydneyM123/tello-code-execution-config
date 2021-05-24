@@ -1,4 +1,4 @@
-# Jenkins Setup Guide
+# :floppy_disk: Jenkins Setup Guide
 
 ## Running Jenkins
 
