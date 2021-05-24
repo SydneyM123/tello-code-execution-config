@@ -112,7 +112,7 @@ pipeline
                 
                 sh '''
                     docker run --rm --name tello-code-exe \
-                    -v jenkins-data:/var/jenkins_home \
+                    --volume jenkins-data:/var/jenkins_home \
                     -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
                 '''
             }
