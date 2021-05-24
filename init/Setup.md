@@ -9,7 +9,7 @@ docker build -t jenkins .
 ```
 3. Run Jenkins:
 ```
-docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var /jenkins_home -v "$HOME":/home jenkins
+docker run --name jenkins --detached --privileged --publish 8080:8080 --publish 50000:50000 --volume /var/run/docker.sock:/var/run/docker.sock --volume jenkins-data:/var /jenkins_home --volume "$HOME":/home jenkins
 ```
 
 ## Setting up Jenkins
