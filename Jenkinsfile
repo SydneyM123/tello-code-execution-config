@@ -74,7 +74,7 @@ pipeline
             {
                 echo 'Executing...'
                 
-                sh 'docker run -it --rm --detach --priviliged --network jenkins --name tello-code-exe --volume jenkins-data:/var/jenkins_home -w /var/jenkins_home/workspace/tello-ccode-exe python:3 python exe.py'
+                sh 'docker run -it --rm --detach --priviliged --name tello-code-exe -w /var/jenkins_home/workspace/tello-code-exe python:3 python exe.py'
             }
         }
     }
