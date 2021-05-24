@@ -41,5 +41,3 @@ docker logs jenkins
 8. Go to the pipeline tab and change the definition to 'Pipeline script from SCM'
 9. Fill in the URL of this private repository
 10. TODO: ....
-
-### PS: Running a python container with .py file
