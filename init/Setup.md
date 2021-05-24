@@ -3,7 +3,7 @@
 2. Build the Dockerfile for Jenkins (Located in the init/ directory)
 ```docker build -t jenkins .```
 
-3. Run Jenkins (including Blue ocean)
+3. Run Jenkins
 ```docker run --name jenkins -d --privileged -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-data:/var/jenkins_home -v "$HOME":/home jenkins```
 
 4. Go to the webinterface located at [host]:8080
