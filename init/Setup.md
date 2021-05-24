@@ -1,6 +1,6 @@
 # :floppy_disk: Jenkins Setup Guide (as a Docker container)
 
-## Running Jenkins
+## Running the Jenkins container
 
 - Open a terminal and go to the init directory located in this repository (tello-code-execution-config)
 - Build the Dockerfile for Jenkins:
