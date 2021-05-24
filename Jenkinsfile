@@ -50,12 +50,30 @@ pipeline
                 }
             }
             steps
-            {                
+            {
+                script
+                {
+                    sh 'mkdir public_tmp'
+
+                    dir ('public_tmp')
+                    {
+                        git branch: 'master',
+                        url: 'https://github.com/SydneyM123/tello-code-execution'
+                    }
+                }
+                
                 sh  '''                    
                     . venv/bin/activate
-                    flake8 ./public --extend-ignore W1,W2,W3,W5,W6,E302,E111,E722
+                    flake8 ./public_tmp --extend-ignore W1,W2,W3,W5,W6,E302,E111,E722
                     deactivate
                 '''
+            }
+            post
+            {
+                always
+                {
+                    sh 'rm -r public_tmp'
+                }
             }
         }
         stage('Schedule')
