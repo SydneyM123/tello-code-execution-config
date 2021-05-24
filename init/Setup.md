@@ -20,8 +20,7 @@
 - When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 - Display the Jenkins console log with the command:
   ```
-  docker logs jenkins
-  ```
+  docker logs jenkins```
 - From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 - On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
 - The automatically-generated password can be used to login the Jenkins (the username is: 'admin').
