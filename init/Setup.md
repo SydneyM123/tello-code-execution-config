@@ -1,6 +1,6 @@
 # Jenkins Setup Guide
 
-### Running Jenkins
+### 1. Running Jenkins
 
 ##### Build the Dockerfile for Jenkins (Located in the init/ directory):
 ```
