@@ -30,7 +30,6 @@ pipeline
                 }
                 
                 sh  '''
-                    python -m pip install --upgrade pip
                     python -m pip install virtualenv
                     virtualenv venv
                     . venv/bin/activate
