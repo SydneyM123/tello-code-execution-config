@@ -108,13 +108,25 @@ pipeline
             agent any
             steps
             {
-                echo 'Executing...'
+                script
+                {                    
+                    if (fileExists('exe.py'))
+                    {
+                        echo 'Executing...'
                 
-                sh '''
-                    docker run --rm --name tello-code-exe \
-                    --volume jenkins-data:/var/jenkins_home \
-                    -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
-                '''
+                        sh '''
+                            docker run --rm --name tello-code-exe \
+                            --volume jenkins-data:/var/jenkins_home \
+                            -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
+                        '''
+                        
+                        sh 'rm exe.py'
+                    }
+                    else
+                    {
+                        echo 'Nothing to execute.'
+                    }
+                }
             }
         }
     }
