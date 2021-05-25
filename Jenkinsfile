@@ -111,11 +111,11 @@ pipeline
                 script
                 {                    
                     if (fileExists('exe.py'))
-                    {
-                        echo 'Executing...'
-                        
+                    {                        
                         try
                         {
+                            echo 'Executing...'
+                            
                             sh '''
                                 docker run --rm --name tello-code-exe \
                                 --volume jenkins-data:/var/jenkins_home \
