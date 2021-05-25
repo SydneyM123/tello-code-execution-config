@@ -1,5 +1,5 @@
 # :floppy_disk: Jenkins Setup Guide
-##### Private repository which contains code for Docker, Jenkins (as a Docker container) and the scheduler
+#### Private repository which contains code for Docker, Jenkins (as a Docker container) and the scheduler
 
 ## Running the Jenkins container
 
