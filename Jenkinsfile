@@ -1,17 +1,18 @@
 pipeline
 {
-    agent
-    {
-        docker
-        {
-            image 'python:3'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent none
     stages
     {
         stage('Initialise')
         {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {
                 script
@@ -40,6 +41,14 @@ pipeline
         }
         stage('Validate')
         {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {
                 script
@@ -69,6 +78,14 @@ pipeline
         }
         stage('Schedule')
         {
+            agent
+            {
+                docker
+                {
+                    image 'python:3'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
             steps
             {
                 script
