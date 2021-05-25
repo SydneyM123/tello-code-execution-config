@@ -113,14 +113,21 @@ pipeline
                     if (fileExists('exe.py'))
                     {
                         echo 'Executing...'
-                
-                        sh '''
-                            docker run --rm --name tello-code-exe \
-                            --volume jenkins-data:/var/jenkins_home \
-                            -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
-                        '''
                         
-                        sh 'rm exe.py'
+                        try
+                        {
+                            sh '''
+                                docker run --rm --name tello-code-exe \
+                                --volume jenkins-data:/var/jenkins_home \
+                                -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
+                            '''
+                            
+                            sh 'rm exe.py'
+                        }
+                        catch (ex)
+                        {
+                            echo 'Another script is already running'
+                        }
                     }
                     else
                     {
