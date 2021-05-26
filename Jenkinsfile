@@ -98,7 +98,7 @@ pipeline
                 
                 sh  '''                    
                     . venv/bin/activate
-                    python private/src/schedule.py
+                    python private/schedule.py
                     deactivate
                 '''
             }
