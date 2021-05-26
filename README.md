@@ -1,7 +1,7 @@
 # :floppy_disk: Jenkins Setup Guide
 #### Private repository which contains code for Docker, Jenkins (as a Docker container) and the scheduler.
-In this setup guide we expect you to have Docker already installed.
-![This link](https://docs.docker.com/engine/install/debian/) contains the docs for installing Docker on Debian. For Raspberry Pi (32-bit), follow the steps for armhf.
+##### In this setup guide we expect you to have Docker already installed.
+##### ![This link](https://docs.docker.com/engine/install/debian/) contains the docs for installing Docker on Debian. For Raspberry Pi (32-bit), follow the steps for armhf.
 
 ## Running the Jenkins container
 
@@ -39,8 +39,19 @@ docker logs jenkins
 
 ### Setting up the pipeline
 
-6. Go to 'New Item' and create a pipeline project
-7. Go the the configuration panel of the pipeline
-8. Go to the pipeline tab and change the definition to 'Pipeline script from SCM'
-9. Fill in the URL of this private repository
-10. TODO: ....
+##### To be able to fetch this repository within Jenkins, Jenkins must know the authentication credentials.
+1. From the dashboard in Jenkins go to 'Manage Jenkins' -> 'Manage Credentials'
+2. Under 'Stores scoped to Jenkins' select the 'Jenkins' store
+3. Select 'Global credentials' -> 'Add Credentials'
+4. Select 'Username with password' -> 'Global', fill in the username, password, ID and description and click OK
+
+##### The last step involves creating the actual pipeline.
+1. Go to 'New Item' and create a pipeline project with the name 'tello-code-execution-pipeline'
+2. Go the the configuration panel of the newly created pipeline
+3. Go to the 'Pipeline' tab and change the definition to 'Pipeline script from SCM'
+4. Set the 'SCM' option to 'Git'
+5. Fill in the URL of this repository (https://github.com/SydneyM123/tello-code-execution-config)
+6. Choose the previously created credentials to authenticate to Github
+7. Under 'Additional Behaviour' under the same tab, add 'Check out to a sub-directory' and fill in 'Jenkins' as a sub-directory
+8. Click save and the pipeline should now be configured correctly
+9. To test the pipeline simply click on 'Build now' and click on the running build left on the screen, under the menu.
