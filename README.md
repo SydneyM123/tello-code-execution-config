@@ -1,7 +1,6 @@
 # :floppy_disk: Jenkins Setup Guide
 #### Private repository which contains code for Docker, Jenkins (as a Docker container) and the scheduler.
-##### In this setup guide we expect you to have Docker already installed.
-##### ![This link](https://docs.docker.com/engine/install/debian/) contains the docs for installing Docker on Debian. For Raspberry Pi (32-bit), follow the steps for armhf.
+##### In this setup guide we expect you to have Docker already installed. ![This link](https://docs.docker.com/engine/install/debian/) contains the docs for installing Docker on Debian. For Raspberry Pi (32-bit), follow the steps for armhf.
 
 ## Running the Jenkins container
 
