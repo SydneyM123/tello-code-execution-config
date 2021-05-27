@@ -5,7 +5,7 @@
 ## Running the Jenkins container
 
 1. Open a terminal and go to the init directory located in this repository (tello-code-execution-config)
-2. Change the Dockerfile that applies to your system to 'Dockerfile' without the OS.
+2. Change the Dockerfile (the one that applies to your system) to 'Dockerfile' without the OS.
 3. Build the Dockerfile for Jenkins:
 ```
 docker build -t jenkins .
@@ -19,7 +19,7 @@ docker run --name jenkins --detach --privileged --publish 8080:8080 --publish 50
 
 1. Go to the webinterface located at [host]:8080
 2. When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
-3. Display the Jenkins console log with the command:
+3. Open your terminal/command prompt window and display the Jenkins console log with the command:
 ```
 docker logs jenkins
 ```
