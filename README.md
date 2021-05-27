@@ -5,7 +5,8 @@
 ## Running the Jenkins container
 
 1. Open a terminal and go to the init directory located in this repository (tello-code-execution-config)
-2. Build the Dockerfile for Jenkins:
+2. Change the Dockerfile that applies to your system to 'Dockerfile' without the OS.
+3. Build the Dockerfile for Jenkins:
 ```
 docker build -t jenkins .
 ```
