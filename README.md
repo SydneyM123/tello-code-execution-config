@@ -31,7 +31,7 @@ docker logs jenkins
 
 ### Setting up an anonymous guest user for students to log in
 
-1. Go to 'Manage Jenkins' -> 'Manage plugins' -> 'Available' search for the 'Role-based Authorization Strategy'
+1. Go to 'Manage Jenkins' -> 'Manage plugins' -> 'Available' and search for the 'Role-based Authorization Strategy'
 2. Check the box in the row of the plugin and click the button 'Download now and install after restart'
 3. After the restart, go to 'Manage Jenkins' -> 'Manage and Assign Roles' -> 'Manage Roles'
 4. Add a new role named 'anonymous' and assign 'global' -> 'read', 'job' -> 'read' and 'view' -> 'read'
@@ -44,6 +44,11 @@ docker logs jenkins
 2. Under 'Stores scoped to Jenkins' select the 'Jenkins' store
 3. Select 'Global credentials' -> 'Add Credentials'
 4. Select 'Username with password' -> 'Global', fill in the username, password, ID and description and click OK
+
+##### Running Docker commands in Jenkins.
+1. To run Docker command in a Jenkins pipeline the 'Docker pipeline' and 'Docker commons' plugins are required
+2. Go to the Jenkins dashboard -> 'Manage Jenkins' -> 'Manage plugins' -> 'Available' and search for the plugins mentioned in the previous step
+3. Check the box in the row of the plugins and click the button 'Download now and install after restart'
 
 ##### The last step involves creating the actual pipeline.
 1. Go to 'New Item' and create a pipeline project with the name 'tello-code-execution-pipeline'
