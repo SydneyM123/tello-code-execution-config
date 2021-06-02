@@ -73,7 +73,7 @@ pipeline
                 
                 sh  '''                    
                     . venv/bin/activate
-                    flake8 ./public_tmp --extend-ignore W1,W2,W3,W5,W6,E302,E111,E722
+                    flake8 ./public_tmp --extend-ignore W1,W2,W3,W5,W6,E302,E111,E722,F401,F821
                     deactivate
                 '''
                 
