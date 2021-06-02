@@ -15,6 +15,9 @@ pipeline
             }
             steps
             {
+                echo '#####################################'
+                echo 'Initialising...'
+                
                 script
                 {                    
                     if (!fileExists('public'))
@@ -37,6 +40,9 @@ pipeline
                     pip3 install flake8
                     deactivate
                 '''
+                
+                echo 'Initialisation complete.'
+                echo '#####################################'
             }
         }
         stage('Validate')
@@ -51,6 +57,9 @@ pipeline
             }
             steps
             {
+                echo '#####################################'
+                echo 'Validating...'
+                
                 script
                 {
                     sh 'mkdir public_tmp'
@@ -67,6 +76,9 @@ pipeline
                     flake8 ./public_tmp --extend-ignore W1,W2,W3,W5,W6,E302,E111,E722
                     deactivate
                 '''
+                
+                echo 'Validation succesful.'
+                echo '#####################################'
             }
             post
             {
@@ -88,6 +100,9 @@ pipeline
             }
             steps
             {
+                echo '#####################################'
+                echo 'Scheduling...'
+                
                 script
                 {                    
                     if (!fileExists('ready-files'))
@@ -101,6 +116,9 @@ pipeline
                     python private/schedule.py
                     deactivate
                 '''
+                
+                echo 'Scheduling complete.'
+                echo '#####################################'
             }
         }
         stage('Prepare')
@@ -108,6 +126,9 @@ pipeline
             agent any
             steps
             {
+                echo '#####################################'
+                echo 'Preparing'
+                
                 script
                 {                    
                     if (fileExists('private/tello_code_execution.py'))
@@ -124,6 +145,9 @@ pipeline
                         sh 'cp -f private/tello_code_execonfig.json config/tello_code_execonfig.json'
                     }
                 }
+                
+                echo 'Done preparing.'
+                echo '#####################################'
             }
         }
         stage('Execute')
@@ -131,6 +155,9 @@ pipeline
             agent any
             steps
             {
+                echo '#####################################'
+                echo 'Executing'
+                
                 script
                 {                    
                     if (fileExists('exe.py'))
@@ -157,6 +184,9 @@ pipeline
                         echo 'Nothing to execute.'
                     }
                 }
+                
+                echo 'Execution completed.'
+                echo '#####################################'
             }
         }
     }
