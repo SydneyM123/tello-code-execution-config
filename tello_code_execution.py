@@ -22,10 +22,9 @@ def send_command(command:str) -> str:
         conn.bind(('', local_port))
         conn.connect((tello_drone_ip, tello_drone_port))
         conn.settimeout(connection_timeout_in_seconds)
-        conn.send(command)
+        conn.send(command.encode('ASCII'))
         resp = conn.recv(1024)
         return resp.decode(errors='replace').strip()
 
     print("Invalid configuration.")
     return "Error"
-  
