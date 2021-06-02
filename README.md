@@ -31,7 +31,7 @@ jenkins
 ```
 docker logs jenkins
 ```
-4. From your terminal/command prompt window again, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
+4. From your terminal, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks).
 5. On the Unlock Jenkins page, paste this password into the Administrator password field and click Continue.
 6. The automatically-generated password can be used to login the Jenkins (the username is: 'admin').
 7. U can also create a custom user but it is not necesarry.
