@@ -130,19 +130,29 @@ pipeline
                 echo 'Preparing'
                 
                 script
-                {                    
-                    if (fileExists('private/tello_code_execution.py'))
-                    {            
-                        sh 'cp -f private/tello_code_execution.py ./tello_code_execution.py'
-                    }
-                    else
+                {
+                    if (!fileExists('./tello_code_execution.py'))
                     {
-                         error "The tello_code_execution library is missing..."
+                        if (fileExists('private/tello_code_execution.py'))
+                        {
+                            sh 'cp -f private/tello_code_execution.py ./tello_code_execution.py'
+                        }
+                        else
+                        {
+                            error 'The tello_code_execution library is missing...'
+                        }
                     }
                     
                     if (!fileExists('config/tello_code_execonfig.json'))
                     {
-                        sh 'cp -f private/tello_code_execonfig.json config/tello_code_execonfig.json'
+                        if (fileExists('private/tello_code_execonfig.json'))
+                        {
+                            sh 'cp -f private/tello_code_execonfig.json config/tello_code_execonfig.json'
+                        }
+                        else
+                        {
+                            error 'The tello_code_execution configuration is missing...'
+                        }
                     }
                 }
                 
