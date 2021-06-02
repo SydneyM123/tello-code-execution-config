@@ -119,7 +119,7 @@ pipeline
                          error "The tello_code_execution library is missing..."
                     }
                     
-                    if (fileExists('config/tello_code_execonfig.json'))
+                    if (!fileExists('config/tello_code_execonfig.json'))
                     {
                         error "The tello_code_execution configuration is missing..."
                     }
