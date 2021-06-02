@@ -121,7 +121,7 @@ pipeline
                     
                     if (!fileExists('config/tello_code_execonfig.json'))
                     {
-                        error "The tello_code_execution configuration is missing..."
+                        sh 'cp -f private/tello_code_execonfig.json config/tello_code_execonfig.json'
                     }
                 }
             }
