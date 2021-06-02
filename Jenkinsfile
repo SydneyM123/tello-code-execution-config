@@ -103,6 +103,29 @@ pipeline
                 '''
             }
         }
+        stage('Prepare')
+        {
+            agent any
+            steps
+            {
+                script
+                {                    
+                    if (fileExists('private/tello_code_execution.py'))
+                    {            
+                        sh 'cp -f private/tello_code_execution.py ./tello_code_execution.py'
+                    }
+                    else
+                    {
+                         error "The tello_code_execution library is missing..."
+                    }
+                    
+                    if (fileExists('config/tello_code_execonfig.json'))
+                    {
+                        error "The tello_code_execution configuration is missing..."
+                    }
+                }
+            }
+        }
         stage('Execute')
         {
             agent any
