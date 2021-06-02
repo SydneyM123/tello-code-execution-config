@@ -186,7 +186,7 @@ pipeline
                         }
                         catch (ex)
                         {
-                            echo 'Another script is already running'
+                            echo 'Another script is already running or there are errors in the executed file.'
                         }
                     }
                     else
