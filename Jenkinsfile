@@ -177,7 +177,7 @@ pipeline
                             echo 'Executing...'
                             
                             sh '''
-                                docker run --name tello-code-exe \
+                                docker run --rm --name tello-code-exe \
                                 --volume jenkins-data:/var/jenkins_home \
                                 --volume tello_code_execonfig:/var/jenkins_home/workspace/tello-code-execution-pipeline/config \
                                 -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
