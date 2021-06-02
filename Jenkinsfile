@@ -151,7 +151,7 @@ pipeline
                         }
                         else
                         {
-                            error 'The tello_code_execution configuration is missing...'
+                            error 'The tello execution configuration is missing...'
                         }
                     }
                 }
@@ -177,7 +177,7 @@ pipeline
                             echo 'Executing...'
                             
                             sh '''
-                                docker run --rm --name tello-code-exe \
+                                docker run --name tello-code-exe \
                                 --volume jenkins-data:/var/jenkins_home \
                                 -w /var/jenkins_home/workspace/tello-code-execution-pipeline python:3 python exe.py
                             '''
