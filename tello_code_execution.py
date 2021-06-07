@@ -6,14 +6,17 @@ tello_drone_ip = None
 tello_drone_port = None
 connection_timeout_in_seconds = None
 
-print("Hello world!")
-
 try:
     config = json.load(open("config/tello_code_execonfig.json"))
     local_port = int(config["local_port"])
     tello_drone_ip = str(config["tello_drone_ip"])
     tello_drone_port = int(config["tello_drone_port"])
     connection_timeout_in_seconds = float(config["connection_timeout_in_seconds"])
+    
+    print(local_port)
+    print(tello_drone_ip)
+    print(tello_drone_port)
+    print(connection_timeout_in_seconds)
 except FileNotFoundError:
     print("No tello-code-execution config file found.")
 
