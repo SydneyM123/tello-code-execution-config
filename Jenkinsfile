@@ -1,4 +1,4 @@
-wpipeline
+pipeline
 {
     agent none
     stages
