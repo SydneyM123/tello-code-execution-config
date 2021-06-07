@@ -135,7 +135,7 @@ pipeline
                     {
                         if (fileExists('private/tello_code_execution.py'))
                         {
-                            sh 'cp -f private/tello_code_execution.py ./tello_code_execution.py'
+                            sh 'cp -f ./private/tello_code_execution.py ./tello_code_execution.py'
                         }
                         else
                         {
@@ -147,7 +147,8 @@ pipeline
                     {
                         if (fileExists('private/tello_code_execonfig.json'))
                         {
-                            sh 'mv private/tello_code_execonfig.json ./config/tello_code_execonfig.json'
+                            
+                            sh 'mv ./private/tello_code_execonfig.json ./tello_code_execonfig.json'
                         }
                         else
                         {
