@@ -6,6 +6,8 @@ tello_drone_ip = None
 tello_drone_port = None
 connection_timeout_in_seconds = None
 
+print("Hello world!")
+
 try:
     config = json.load(open("config/tello_code_execonfig.json"))
     local_port = int(config["local_port"])
