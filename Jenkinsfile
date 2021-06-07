@@ -1,4 +1,4 @@
-pipeline
+wpipeline
 {
     agent none
     stages
@@ -148,7 +148,7 @@ pipeline
                         if (fileExists('private/tello_code_execonfig.json'))
                         {
                             
-                            sh 'mv ./private/tello_code_execonfig.json ./tello_code_execonfig.json'
+                            sh 'mv ./private/tello_code_execonfig.json ./config/tello_code_execonfig.json'
                         }
                         else
                         {
