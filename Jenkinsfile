@@ -117,6 +117,14 @@ pipeline
                     deactivate
                 '''
                 
+                script
+                {
+                    if (!fileExists('exe.py'))
+                    {
+                        error("Nothing to execute...")
+                    }
+                }
+                
                 echo 'Scheduling complete.'
                 echo '#####################################'
             }
