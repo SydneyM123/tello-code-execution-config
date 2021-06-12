@@ -131,6 +131,8 @@ pipeline
                 
                 script
                 {
+                    sh 'rm ./tello_code_execution.py'
+                    
                     if (!fileExists('./tello_code_execution.py'))
                     {
                         if (fileExists('private/tello_code_execution.py'))
