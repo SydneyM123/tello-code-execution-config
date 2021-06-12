@@ -131,7 +131,7 @@ pipeline
                 
                 script
                 {
-                    sh 'rm ./tello_code_execution.py'
+                    sh 'rm config/tello_code_execonfig.json'
                     
                     if (!fileExists('./tello_code_execution.py'))
                     {
