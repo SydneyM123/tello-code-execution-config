@@ -130,7 +130,10 @@ pipeline
                 echo 'Preparing'
                 
                 script
-                {                    
+                {
+                    sh 'rm ./tello_code_execution.py'
+                    sh 'rm ./config/tello_code_execonfig.json'
+                    
                     if (!fileExists('./tello_code_execution.py'))
                     {
                         if (fileExists('private/tello_code_execution.py'))
