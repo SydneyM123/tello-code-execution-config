@@ -131,8 +131,17 @@ pipeline
                 
                 script
                 {
-                    sh 'rm ./tello_code_execution.py'
-                    sh 'rm ./config/tello_code_execonfig.json'
+                    //Temporary
+                    if (fileExists('./tello_code_execution.py'))
+                    {
+                        sh 'rm ./tello_code_execution.py'
+                    }
+                    
+                    //Temporary
+                    if (fileExists('./tello_code_execution.py'))
+                    {
+                        sh 'rm ./config/tello_code_execonfig.json'
+                    }
                     
                     if (!fileExists('./tello_code_execution.py'))
                     {
@@ -151,7 +160,7 @@ pipeline
                         if (fileExists('private/tello_code_execonfig.json'))
                         {
                             
-                            sh 'mv ./private/tello_code_execonfig.json ./config/tello_code_execonfig.json'
+                            sh 'cp -f ./private/tello_code_execonfig.json ./config/tello_code_execonfig.json'
                         }
                         else
                         {
