@@ -115,8 +115,6 @@ pipeline
                     . venv/bin/activate
                     python private/schedule.py
                     deactivate
-                    
-                    rm exe.py
                 '''
                 
                 script
