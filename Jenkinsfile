@@ -138,12 +138,7 @@ pipeline
                 echo 'Preparing'
                 
                 script
-                {
-                    if (fileExists('./tello_code_execution.py'))
-                    {
-                        sh 'rm ./tello_code_execution.py'
-                    }
-                    
+                {                    
                     if (!fileExists('./tello_code_execution.py'))
                     {
                         if (fileExists('private/tello_code_execution.py'))
